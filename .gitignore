@@ -1,0 +1,43 @@
+# -------------------------------------------------------
+# Archivos generados por los cuadernos Jupyter
+# -------------------------------------------------------
+
+# Datos tabulares
+*.csv
+*.tsv
+
+# Datos semiestructurados
+*.json
+*.xml
+
+# Hojas de cálculo
+*.xlsx
+*.xls
+*.ods
+
+# Bases de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# -------------------------------------------------------
+# Entornos y caché de Python
+# -------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv
+venv/
+
+# -------------------------------------------------------
+# Jupyter
+# -------------------------------------------------------
+.ipynb_checkpoints/
+
+# -------------------------------------------------------
+# Sistema operativo
+# -------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
