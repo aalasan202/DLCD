@@ -41,3 +41,12 @@ venv/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# -------------------------------------------------------
+# Trabajo personal del alumnado (no se sube a GitHub)
+# -------------------------------------------------------
+mis_cuadernos/*
+!mis_cuadernos/LEEME.md
+
+# Configuración compartida de VS Code (excepción a *.json)
+!.vscode/*.json

@@ -1,0 +1,10 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+    "python.terminal.activateEnvironment": true,
+    "jupyter.notebookFileRoot": "${fileDirname}",
+    "notebook.output.textLineLimit": 200,
+    "files.exclude": {
+        "**/.ipynb_checkpoints": true,
+        "**/__pycache__": true
+    }
+}

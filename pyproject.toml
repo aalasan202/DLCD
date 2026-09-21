@@ -1,0 +1,37 @@
+[project]
+name = "dlcd"
+version = "2026.1"
+description = "Depuración, limpieza y clasificación de datos (5109) - Curso de Especialización en Aprendizaje Automático: gestión de datos y entrenamiento"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # Jupyter en VS Code
+    "ipykernel",
+    "ipywidgets",
+    "pip",               # algunos cuadernos comprueban/instalan paquetes con `python -m pip`
+    # Manipulación y carga de datos
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "openpyxl",          # leer/escribir Excel (UD1 B1_S3)
+    "lxml",              # pd.read_xml (UD1 B1_S3)
+    "datasets",          # repositorios de Hugging Face (UD1 B1_S3)
+    "kagglehub",         # descarga de datasets de Kaggle (Proyecto)
+    # Visualización y perfilado
+    "matplotlib",
+    "seaborn",
+    "missingno",         # UD1 B3_S1
+    "ydata-profiling",   # UD1 B2_S3 (exige pandas < 3)
+    "setuptools<81",     # ydata-profiling aún necesita pkg_resources
+    # Estadística (UD2)
+    "scipy",
+    "statsmodels",
+    "pingouin",          # correlación parcial (Proyecto)
+    # Limpieza, selección y clasificación (UD3)
+    "scikit-learn",
+    "imbalanced-learn",
+]
+
+[tool.uv]
+# El repositorio no es un paquete instalable: solo gestionamos el entorno
+package = false
