@@ -84,8 +84,9 @@ Varios pasos se hacen escribiendo comandos. En Windows:
    ```powershell
    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
    ```
+2. Añade a la variable de entonro "$Path" de tu usuario, la ruta de ejecución que te indica el comando. Hazlo a través de la barra de tareas, busca "Editar variables de entorno del sistema"->"Variables de entorno", dentro de las variables de tu usuario busca "Path", y añade la nueva ruta del ejecutable de "uv".
 
-2. **Cierra la terminal y abre otra nueva.** Comprueba la instalación:
+3. **Cierra la terminal y abre otra nueva.** Comprueba la instalación:
 
    ```powershell
    uv --version
