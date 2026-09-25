@@ -30,6 +30,9 @@ dependencies = [
     # Limpieza, selección y clasificación (UD3)
     "scikit-learn",
     "imbalanced-learn",
+    # Modelos de lenguaje vía API (UD1 B1_S1, Ejemplo 3b)
+    "openai",            # cliente compatible con OpenRouter
+    "python-dotenv",     # lee la clave OPENROUTER_API_KEY desde .env
 ]
 
 [tool.uv]

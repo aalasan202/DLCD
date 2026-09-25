@@ -17,6 +17,7 @@ Vas a instalar, **en este orden**:
 | 4 | Clonar el repositorio **DLCD** | Tener los materiales en tu ordenador |
 | 5 | `uv sync` | Crear el entorno `.venv` con todas las librerías |
 | 6 | Elegir el kernel y ejecutar `00_comprobacion_entorno.ipynb` | Comprobar que todo funciona |
+| 7 | Crear el archivo `.env` con tu clave de **OpenRouter** | Usar modelos de lenguaje (LLM) desde los cuadernos |
 
 > **No necesitas instalar Python ni Anaconda.** `uv` descarga la versión de Python correcta (3.12) y crea el entorno
 > dentro del proyecto. Si ya tienes otro Python instalado, **no hay conflicto**: cada uno va por su lado
@@ -143,6 +144,7 @@ Librerías que se instalan:
 | Visualización y perfilado | `matplotlib`, `seaborn`, `missingno`, `ydata-profiling` |
 | Estadística (UD2) | `scipy`, `statsmodels`, `pingouin` |
 | Limpieza y clasificación (UD3) | `scikit-learn`, `imbalanced-learn` |
+| Modelos de lenguaje vía API | `openai` (cliente para OpenRouter), `python-dotenv` (lee el archivo `.env`) |
 
 ---
 
@@ -170,6 +172,40 @@ Librerías que se instalan:
    - una tabla y un gráfico de pingüinos.
 
 **Si ves el gráfico, tu entorno está listo.**
+
+---
+
+## Paso 7 · Clave de OpenRouter (archivo `.env`)
+
+Algunos cuadernos (el primero, `UD1\Bloque_1_Analisis_exploratorio_de_datos\B1_S1_Naturaleza_y_Tipos_de_Datos.ipynb`,
+Ejemplo 3b) usan un **modelo de lenguaje (LLM)** a través de [OpenRouter](https://openrouter.ai), un servicio que da
+acceso a muchos modelos, algunos **gratuitos**. Para usarlo necesitas una **clave personal** (*API key*).
+
+1. Crea una cuenta gratuita en <https://openrouter.ai> (puedes entrar con tu cuenta de Google o GitHub).
+2. Ve a <https://openrouter.ai/keys>, pulsa **Create Key**, ponle un nombre (por ejemplo `DLCD`) y copia la clave.
+   Empieza por `sk-or-v1-...`.
+
+   > La clave **solo se muestra una vez**. Si la pierdes, borra esa clave y crea otra.
+
+3. En VS Code, con la carpeta `DLCD` abierta, crea un archivo nuevo **en la raíz** del repositorio (al lado de
+   `pyproject.toml`) llamado exactamente **`.env`** (con el punto delante y sin extensión).
+   En el explorador de VS Code: botón **Nuevo archivo** → escribe `.env` → **Intro**.
+4. Escribe dentro esta línea, con tu clave, y guarda (`Ctrl + S`):
+
+   ```
+   OPENROUTER_API_KEY=sk-or-v1-tu_clave_aqui
+   ```
+
+   Sin espacios alrededor del `=` y sin comillas.
+
+Los cuadernos leen la clave de ese archivo automáticamente. Si no lo encuentran, te la pedirán al ejecutar la celda.
+
+> 🔒 **Tu clave es personal: no la compartas ni la escribas nunca dentro de un cuaderno.**
+> El archivo `.env` está en `.gitignore`, así que **no se sube a GitHub** ni se toca con `git pull`.
+> Si alguna vez la publicas por error, bórrala en <https://openrouter.ai/keys> y crea otra.
+
+> Los modelos gratuitos (terminan en `:free`) tienen un límite de peticiones por minuto y por día. Para los ejemplos del
+> curso es suficiente; si ves un error `429`, espera un minuto y vuelve a ejecutar la celda.
 
 ---
 
@@ -221,8 +257,10 @@ Si no puedes instalar nada (ordenador ajeno, equipo muy limitado…), puedes abr
 3. Colab ya trae casi todas las librerías. Si falta alguna, ejecuta en la primera celda:
 
    ```python
-   !pip install missingno ydata-profiling pingouin imbalanced-learn
+   !pip install missingno ydata-profiling pingouin imbalanced-learn openai python-dotenv
    ```
+
+   En Colab no hay archivo `.env`: cuando un cuaderno necesite la clave de OpenRouter, te la pedirá al ejecutar la celda.
 
 Limitaciones: los cambios no se guardan en el repositorio (usa **Archivo → Guardar una copia en Drive**), las versiones de
 las librerías pueden no coincidir con las del curso y los ficheros de datos locales hay que subirlos a la sesión.
@@ -241,6 +279,9 @@ las librerías pueden no coincidir con las del curso y los ficheros de datos loc
 | VS Code pide instalar `ipykernel` | No lo instales desde el aviso: significa que el kernel no es `.venv`. Cámbialo. |
 | El entorno se ha estropeado | Cierra VS Code, borra la carpeta `.venv` dentro de `DLCD` y ejecuta `uv sync`. Se vuelve a crear en unos minutos. |
 | `git pull` da conflicto con un cuaderno | Ver [Trabajo del día a día](#trabajo-del-día-a-día). |
+| El cuaderno pide la clave de OpenRouter aunque creaste el `.env` | Comprueba que el archivo se llama exactamente `.env` (no `.env.txt`) y que está en la raíz de `DLCD`, no en una subcarpeta. Reinicia el kernel (**Restart**) después de crearlo. |
+| Error `401` o `User not found` al llamar al modelo | La clave está mal copiada o se ha borrado. Crea una nueva en <https://openrouter.ai/keys> y cámbiala en `.env`. |
+| Error `429` (*rate limit*) | Has superado el límite de los modelos gratuitos. Espera un minuto y vuelve a ejecutar. |
 
 ---
 
