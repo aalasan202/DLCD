@@ -17,7 +17,8 @@ DLCD/
 ├── UD1/   Análisis exploratorio de datos: estructura, variables y calidad (RA1)
 │   ├── Bloque_1_Analisis_exploratorio_de_datos/
 │   ├── Bloque_2_AED/
-│   └── Bloque_3_Calidad_de_datos/
+│   ├── Bloque_3_Calidad_de_datos/
+│   └── ejercicios/                 Relaciones de ejercicios para entregar
 ├── UD2/   Verificación de datos mediante técnicas estadísticas (RA2)
 │   ├── Bloque_1_Estadistica_Descriptiva/
 │   ├── Bloque_2_Distribuciones_y_Normalidad/
