@@ -113,7 +113,7 @@ actualizaciones.
 
    ```powershell
    cd C:\Users\<tu_usuario>\Documents\GitHub
-   git clone https://github.com/alberto-dealarcon-pro/DLCD.git
+   git clone https://github.com/aalasan202/DLCD.git
    cd DLCD
    ```
 
@@ -253,7 +253,7 @@ Si no puedes instalar nada (ordenador ajeno, equipo muy limitado…), puedes abr
 **Google Colab** con tu cuenta de Google:
 
 1. Entra en <https://colab.research.google.com> → pestaña **GitHub**.
-2. Escribe `alberto-dealarcon-pro/DLCD` y elige el cuaderno.
+2. Escribe `aalasan202/DLCD` y elige el cuaderno.
 3. Colab ya trae casi todas las librerías. Si falta alguna, ejecuta en la primera celda:
 
    ```python
