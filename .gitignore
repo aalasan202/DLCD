@@ -50,3 +50,6 @@ mis_cuadernos/*
 
 # Configuración compartida de VS Code (excepción a *.json)
 !.vscode/*.json
+
+# Datasets de los ejercicios (excepción a *.csv)
+!**/ejercicios/datos/*.csv
